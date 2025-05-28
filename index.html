@@ -1,162 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yashas S Portfolio</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashas S - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f0f4f8;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-    header {
-      background: linear-gradient(90deg, #2980b9, #6dd5fa);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      letter-spacing: 2px;
-    }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.25rem;
-      font-weight: 300;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a73e8;
+        }
 
-    main {
-      max-width: 900px;
-      margin: -60px auto 40px;
-      background: white;
-      border-radius: 12px;
-      padding: 30px 40px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-    section {
-      margin-bottom: 35px;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    h2 {
-      border-bottom: 3px solid #2980b9;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      color: #2980b9;
-      font-weight: 700;
-    }
+        .nav-links a:hover {
+            color: #1a73e8;
+        }
 
-    p, li {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+        section {
+            padding: 5rem 0;
+            margin-top: 2rem;
+        }
 
-    ul li {
-      background: url('https://img.icons8.com/ios-filled/20/2980b9/checkmark.png') no-repeat left center;
-      padding-left: 30px;
-      margin-bottom: 12px;
-    }
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-top: 0;
+        }
 
-    a {
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: 600;
-    }
+        .hero-content {
+            text-align: left;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #1a73e8;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #ddd;
-      max-width: 900px;
-      margin: 0 auto 40px;
-    }
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
 
-    @media (max-width: 600px) {
-      main {
-        margin: -40px 15px 20px;
-        padding: 20px;
-      }
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-      header h1 {
-        font-size: 2rem;
-      }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-      header p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item a {
+            color: #1a73e8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #1557b0;
+        }
+
+        /* Utility Classes */
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">YS</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<header>
-  <h1>Yashas S</h1>
-  <p>Computer Science Engineer | Java Developer | 2025 Graduate | Chikmagalur</p>
-</header>
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Yashas S</h1>
+                <h2>Computer Science Engineer & Java Developer</h2>
+                <p>Based in Chikmagalur • 2025 Graduate</p>
+            </div>
+        </div>
+    </section>
 
-<main>
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I am a passionate Computer Science student based in Chikmagalur, pursuing my B.E. degree at Adichunchanagiri Institute of Technology.  
-      Skilled in Java, Advanced Java, SQL, Servlets, and JSP, I am focused on backend development and real-time systems.
-    </p>
-  </section>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I am a passionate Computer Science student based in Chikmagalur, pursuing my B.E. degree at Adichunchanagiri Institute of Technology. Skilled in Java, Advanced Java, SQL, Servlets, and JSP. Focused on backend development and real-time systems.</p>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Java & Advanced Java</li>
-      <li>SQL & Database Management</li>
-      <li>Servlets & JSP</li>
-      <li>Java Swing GUI Development</li>
-      <li>Version Control: Git & GitHub</li>
-    </ul>
-  </section>
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Java Development</h3>
+                    <p>Java & Advanced Java</p>
+                    <p>Servlets & JSP</p>
+                    <p>Java Swing GUI Development</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Database</h3>
+                    <p>SQL</p>
+                    <p>Database Management</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Version Control</h3>
+                    <p>Git</p>
+                    <p>GitHub</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>GPS Attendance Tracker:</strong> Developed a real-time attendance system using Java Swing and GPS with complementary filtering for accurate location data.</li>
-      <!-- You can add more projects here -->
-    </ul>
-  </section>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <h3>GPS Attendance Tracker</h3>
+                <p>Developed a real-time attendance system using Java Swing and GPS with complementary filtering for accurate location data.</p>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:yashassyashass7@gmail.com">yashassyashass7@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/YashasS18" target="_blank">github.com/YashasS18</a></p>
-  </section>
-</main>
-
-<footer>
-  &copy; 2025 Yashas S. All rights reserved.
-</footer>
-
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:yashassyashass7@gmail.com">yashassyashass7@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/YashasS18" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
